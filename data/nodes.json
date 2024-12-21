@@ -1,0 +1,107 @@
+[
+  {
+    "id": "input",
+    "type": "special",
+    "position": { "x": 0, "y": 0 },
+    "data": {
+      "connectedNodeId": "function-1",
+      "title": "Initial value of x",
+      "variant": "input"
+    }
+  },
+  {
+    "id": "function-1",
+    "type": "function",
+    "position": { "x": 0, "y": 0 },
+    "data": {
+      "title": "Function: 1",
+      "inputValue": "x+2",
+      "optionValue": "function-2",
+      "isSelectDisabled": true,
+      "nextNodeId": "function-2",
+      "options": [
+        {
+          "label": "Function: 2",
+          "value": "function-2"
+        }
+      ]
+    }
+  },
+  {
+    "id": "function-2",
+    "type": "function",
+    "position": { "x": 0, "y": 0 },
+    "data": {
+      "title": "Function: 2",
+      "inputValue": "2x+4",
+      "optionValue": "function-4",
+      "isSelectDisabled": true,
+      "nextNodeId": "function-4",
+      "options": [
+        {
+          "label": "Function: 4",
+          "value": "function-4"
+        }
+      ]
+    }
+  },
+  {
+    "id": "function-3",
+    "type": "function",
+    "position": { "x": 0, "y": 0 },
+    "data": {
+      "title": "Function: 3",
+      "inputValue": "x^2+20",
+      "optionValue": "",
+      "isSelectDisabled": true,
+      "nextNodeId": "output",
+      "options": []
+    }
+  },
+  {
+    "id": "function-4",
+    "type": "function",
+    "position": { "x": 0, "y": 0 },
+    "data": {
+      "title": "Function: 4",
+      "inputValue": "x-2",
+      "optionValue": "function-5",
+      "isSelectDisabled": true,
+      "nextNodeId": "function-5",
+      "options": [
+        {
+          "label": "Function: 5",
+          "value": "function-5"
+        }
+      ]
+    }
+  },
+  {
+    "id": "function-5",
+    "type": "function",
+    "position": { "x": 0, "y": 0 },
+    "data": {
+      "title": "Function: 5",
+      "inputValue": "x/2",
+      "optionValue": "function-3",
+      "isSelectDisabled": true,
+      "nextNodeId": "function-3",
+      "options": [
+        {
+          "label": "Function: 3",
+          "value": "function-3"
+        }
+      ]
+    }
+  },
+  {
+    "id": "output",
+    "type": "special",
+    "position": { "x": 0, "y": 0 },
+    "data": {
+      "connectedNodeId": "function-1",
+      "title": "Final Output y",
+      "variant": "output"
+    }
+  }
+]
