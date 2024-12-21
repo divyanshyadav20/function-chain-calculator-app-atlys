@@ -8,6 +8,9 @@ export default {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        subtle: "0px 0px 6px 0px rgba(0, 0, 0, 0.05)",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
@@ -16,6 +19,16 @@ export default {
           20: "#D3D3D3",
           30: "#A5A5A5",
           40: "#585757",
+        },
+        mustard: {
+          50: "#FFEED5",
+          100: "#FFC267",
+          200: "#E29A2D",
+        },
+        green: {
+          10: "#C5F2DA",
+          20: "#2DD179",
+          30: "#4CAF79",
         },
       },
     },
