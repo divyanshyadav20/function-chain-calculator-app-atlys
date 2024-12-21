@@ -5,13 +5,14 @@ import { FunctionNodeAttributes, SpecialNodeAttributes } from "@/types";
 
 export default function Home() {
   return (
-    <div className="p-4 flex items-end gap-5 justify-center">
-      {nodes.map(({ data, type, id }) => {
+    <div className="p-4 flex gap-5 justify-center items-center relative">
+      {nodes.map(({ data, type, id, position }) => {
         switch (type) {
           case "function":
             return (
               <FunctionNode
                 key={id}
+                position={position}
                 data={data as FunctionNodeAttributes["data"]}
               />
             );
@@ -19,6 +20,7 @@ export default function Home() {
             return (
               <SpecialNode
                 key={id}
+                position={position}
                 data={data as SpecialNodeAttributes["data"]}
               />
             );
