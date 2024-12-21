@@ -30,6 +30,9 @@ export default {
           20: "#2DD179",
           30: "#4CAF79",
         },
+        indigo: {
+          10: "#66A3FF",
+        },
       },
     },
   },

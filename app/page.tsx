@@ -1,5 +1,6 @@
 import Badge from "@/components/badge";
 import Card from "@/components/card";
+import Connector from "@/components/connector";
 import Input from "@/components/input";
 import InputWithIcon from "@/components/input-with-icon";
 import Select from "@/components/select";
@@ -41,8 +42,14 @@ export default function Home() {
         </Card.Content>
 
         <Card.Footer className="flex justify-between items-center font-medium text-xs leading-3 text-gray-40">
-          <div>input</div>
-          <div>output</div>
+          <div className="flex items-center gap-1">
+            <Connector />
+            <p>input</p>
+          </div>
+          <div className="flex items-center gap-1">
+            <p>output</p>
+            <Connector />
+          </div>
         </Card.Footer>
       </Card>
 
