@@ -22,7 +22,7 @@ const FunctionNode = ({
         top: position.y,
         left: position.x,
       }}
-      className="absolute"
+      className="absolute cursor-default"
     >
       <Card className="h-[251px] w-[235px]">
         <Card.Header className="font-semibold text-sm leading-4 text-gray-30 flex items-center gap-2 mb-5">

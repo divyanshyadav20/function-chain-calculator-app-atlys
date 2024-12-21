@@ -21,7 +21,7 @@ const SpecialNode = ({ data: { variant, title }, position }: Props) => {
         top: position.y,
         left: position.x,
       }}
-      className="flex flex-col items-center justify-center gap-1.5 max-w-28 absolute"
+      className="flex flex-col cursor-default items-center justify-center gap-1.5 max-w-28 absolute"
     >
       <Badge className={`${variantStyles[variant]} text-white`} label={title} />
       <InputWithIcon variant={variant} />
