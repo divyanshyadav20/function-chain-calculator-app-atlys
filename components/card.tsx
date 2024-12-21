@@ -6,7 +6,7 @@ type Props = {
 const Card = ({ children, className }: Props) => {
   return (
     <div
-      className={`border rounded-[15px] border-gray-10 py-4 px-5 flex flex-col justify-between ${className}`}
+      className={`border rounded-2xl flex-shrink-0 border-gray-10 shadow-subtle flex flex-col justify-between py-4 px-5 bg-white ${className}`}
     >
       {children}
     </div>
