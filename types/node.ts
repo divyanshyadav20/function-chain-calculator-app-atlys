@@ -10,8 +10,8 @@ type BaseNode = {
 export type FunctionNodeAttributes = BaseNode & {
   data: {
     title: string;
-    inputValue: string;
-    optionValue: string;
+    defaultInputValue: string;
+    defaultOptionValue: string;
     isSelectDisabled: boolean;
     nextNodeId: string;
     options: {

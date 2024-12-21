@@ -29,9 +29,13 @@ const Select = ({ label, disabled, options, value }: Props) => {
           disabled={disabled}
           className="border block min-h-8 border-gray-20 text-gray-40 rounded-lg px-3 py-2 disabled:bg-neutral-100 w-full font-medium text-xs leading-3 appearance-none"
         >
-          {options.map((opt, index) => (
-            <option key={index}>{opt.label}</option>
-          ))}
+          {!options.length ? (
+            <option>-</option>
+          ) : (
+            options.map((opt, index) => (
+              <option key={index}>{opt.label}</option>
+            ))
+          )}
         </select>
         <Image
           width={14}
