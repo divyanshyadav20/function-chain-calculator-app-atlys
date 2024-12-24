@@ -99,7 +99,7 @@
     "type": "special",
     "position": { "x": 1239, "y": 335 },
     "data": {
-      "connectedNodeId": "function-1",
+      "connectedNodeId": "function-3",
       "title": "Final Output y",
       "variant": "output"
     }
