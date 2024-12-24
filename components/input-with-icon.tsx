@@ -3,11 +3,26 @@ import Connector from "./connector";
 type Props = {
   className?: string;
   variant?: "input" | "output";
-  value?: string;
+  value?: number | null;
+  onChange?: (value: number | null) => void;
 };
 
-const InputWithIcon = ({ className, variant = "input", value }: Props) => {
+const InputWithIcon = ({
+  className,
+  variant = "input",
+  value,
+  onChange,
+}: Props) => {
   const isRowReversed = variant === "output";
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+
+    // Only allow numbers and empty string
+    if (val === "" || /^\d*$/.test(val)) {
+      onChange?.(val === "" ? null : Number(val));
+    }
+  };
 
   return (
     <div
@@ -18,9 +33,11 @@ const InputWithIcon = ({ className, variant = "input", value }: Props) => {
       }`}
     >
       <input
-        type="number"
-        value={value}
+        type="text"
+        value={value ?? ""}
         disabled={isRowReversed}
+        onChange={handleChange}
+        aria-label="Special node input"
         className={`h-full text-black w-full rounded-2xl disabled:bg-white text-lg font-bold leading-5 block pl-3 pr-1  appearance-none focus-visible:outline-none focus:ring-blue-500 focus:border-blue-500 ${className}`}
       />
       <div
