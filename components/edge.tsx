@@ -1,20 +1,25 @@
 "use client";
 
-interface EdgeProps {
-  position: {
-    x0: number; // Starting x coordinate
-    y0: number; // Starting y coordinate
-    x1: number; // Ending x coordinate
-    y1: number; // Ending y coordinate
-  };
-}
+import { useBoardContext } from "@/context/useBoardContext";
+import { Edge as EdgeType } from "@/types";
 
-const Edge = ({ position }: EdgeProps) => {
-  /**
-   * Calculates a control point for the Bezier curve
-   * @param isFirst - Boolean indicating if this is the first control point
-   * @returns Control point coordinates {x, y}
-   */
+type Props = {
+  edge: EdgeType;
+};
+
+const Edge = ({ edge: { source, target, position } }: Props) => {
+  const { nodes } = useBoardContext();
+
+  const hasValidConnection = () => {
+    const sourceNode = nodes.find((node) => node.id === source);
+    const targetNode = nodes.find((node) => node.id === target);
+    return !!sourceNode && !!targetNode;
+  };
+
+  if (!hasValidConnection()) {
+    return null;
+  }
+
   const createControlPoint = (isFirst: boolean) => {
     const dx = position.x1 - position.x0; // Distance in x direction
     const dy = position.y1 - position.y0; // Distance in y direction
@@ -63,10 +68,10 @@ const Edge = ({ position }: EdgeProps) => {
   return (
     <svg className="absolute top-0 left-0 w-full h-full pointer-events-none">
       <path
-        className="pointer-events-auto stroke-indigo-10/50 stroke-[6]"
+        fill="none"
         d={pathDefinition}
         strokeLinecap="round"
-        fill="none"
+        className="pointer-events-auto stroke-indigo-10/50 stroke-[6]"
       />
     </svg>
   );

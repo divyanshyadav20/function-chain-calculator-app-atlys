@@ -43,7 +43,7 @@ const Board = () => {
             <NodeComponent key={index} node={node} />
           ))}
           {allEdges.map((edge, index) => (
-            <Edge key={index} position={edge.position} />
+            <Edge key={index} edge={edge} />
           ))}
         </div>
       </div>
