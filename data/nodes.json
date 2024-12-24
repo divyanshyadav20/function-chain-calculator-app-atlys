@@ -15,7 +15,7 @@
     "position": { "x": 265, "y": 162 },
     "data": {
       "title": "Function: 1",
-      "defaultInputValue": "x+2",
+      "expression": "x^2",
       "defaultOptionValue": "function-2",
       "isSelectDisabled": true,
       "nextNodeId": "function-2",
@@ -33,7 +33,7 @@
     "position": { "x": 631, "y": 162 },
     "data": {
       "title": "Function: 2",
-      "defaultInputValue": "2x+4",
+      "expression": "2x+4",
       "defaultOptionValue": "function-4",
       "isSelectDisabled": true,
       "nextNodeId": "function-4",
@@ -51,7 +51,7 @@
     "position": { "x": 989, "y": 162 },
     "data": {
       "title": "Function: 3",
-      "defaultInputValue": "x^2+20",
+      "expression": "x^2+20",
       "defaultOptionValue": "",
       "isSelectDisabled": true,
       "nextNodeId": "output",
@@ -64,7 +64,7 @@
     "position": { "x": 454, "y": 520 },
     "data": {
       "title": "Function: 4",
-      "defaultInputValue": "x-2",
+      "expression": "x-2",
       "defaultOptionValue": "function-5",
       "isSelectDisabled": true,
       "nextNodeId": "function-5",
@@ -82,7 +82,7 @@
     "position": { "x": 823, "y": 520 },
     "data": {
       "title": "Function: 5",
-      "defaultInputValue": "x/2",
+      "expression": "x/2",
       "defaultOptionValue": "function-3",
       "isSelectDisabled": true,
       "nextNodeId": "function-3",

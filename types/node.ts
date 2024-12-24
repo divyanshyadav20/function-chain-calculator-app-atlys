@@ -14,7 +14,7 @@ type BaseNode<T extends NodeType, TData> = {
 
 type FunctionNodeData = {
   title: string;
-  defaultInputValue: string;
+  expression: string;
   defaultOptionValue: string;
   isSelectDisabled: boolean;
   nextNodeId: string;

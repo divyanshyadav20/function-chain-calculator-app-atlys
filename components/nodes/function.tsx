@@ -4,16 +4,40 @@ import Card from "@/components/card";
 import Connector from "@/components/connector";
 import Input from "@/components/input";
 import Select from "@/components/select";
+import { useBoardContext } from "@/context/useBoardContext";
 import { FunctionNodeAttributes } from "@/types";
+import { isValidAlgebraicExpression } from "@/utils/helpers";
 import Image from "next/image";
+
+import { useState } from "react";
 
 type Props = {
   node: FunctionNodeAttributes;
 };
 
 const FunctionNode = ({ node }: Props) => {
-  const { title, options, defaultInputValue } = node.data;
+  const { title, options, expression } = node.data;
   const { position } = node;
+
+  const { handleUpdateNode } = useBoardContext();
+  const [error, setError] = useState<string>("");
+
+  const handleUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = event.target.value;
+
+    // Validate the expression
+    if (!isValidAlgebraicExpression(newValue)) {
+      setError("Invalid expression");
+    } else {
+      setError("");
+
+      // Only update node if expression is valid
+      handleUpdateNode({
+        ...node,
+        data: { ...node.data, expression: newValue },
+      });
+    }
+  };
 
   return (
     <div
@@ -30,7 +54,12 @@ const FunctionNode = ({ node }: Props) => {
         </Card.Header>
 
         <Card.Content className="flex flex-col gap-5 justify-center mb-11">
-          <Input label="Equation" defaultValue={defaultInputValue} />
+          <Input
+            onChange={handleUpdate}
+            label="Equation"
+            value={expression}
+            error={error}
+          />
           <Select
             disabled
             options={options}
