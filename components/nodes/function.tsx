@@ -56,10 +56,10 @@ const FunctionNode = ({ node }: Props) => {
 
         <Card.Content className="flex flex-col gap-5 justify-center mb-11">
           <Input
-            onChange={handleUpdate}
+            error={error}
             label="Equation"
             value={expression}
-            error={error}
+            onChange={handleUpdate}
           />
           <Select
             disabled
