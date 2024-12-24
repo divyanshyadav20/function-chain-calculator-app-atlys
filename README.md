@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Function Chain Calculator
 
-## Getting Started
+A Next.js application that demonstrates function chaining and real-time mathematical calculations. Users can input mathematical expressions that are evaluated in a specific sequence, with the output of each function feeding into the next.
 
-First, run the development server:
+## 🌟 Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Try out the application here: [Function Chain Calculator](https://function-chain-calculator-app-atlys.vercel.app/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📸 Screenshot
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+![Function Chain Calculator](/public/images/screenshot.png)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🌟 Features
 
-## Learn More
+### Function Chain Visualization
 
-To learn more about Next.js, take a look at the following resources:
+- Visual representation of 5 interconnected function nodes
+- Custom-built flow visualization without external libraries
+- Fixed execution order: 1 → 2 → 4 → 5 → 3
+- Curved connecting lines showing data flow between nodes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Mathematical Processing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Support for basic arithmetic operations (+, -, \*, /, ^)
+- Real-time expression validation
+- Dynamic calculation as expressions or input values change
+- Chain-based calculation where output of one function becomes input for the next
 
-## Deploy on Vercel
+### Interactive UI Components
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Input node for initial value (x)
+- Output node showing final calculation result (y)
+- Function cards with:
+  - Editable expression input
+  - Disabled dropdown showing next function in chain
+  - Visual input/output connectors
+  - Error handling for invalid expressions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛠 Technical Implementation
+
+### Built With
+
+- **Framework**: Next.js 15.1.2
+- **Language**: TypeScript
+- **Styling**: TailwindCSS
+- **State Management**: React Context API
+
+### Key Components
+
+- `Board`: Main container managing the graph state and layout
+- `FunctionNode`: Individual function cards with expression inputs
+- `Edge`: Custom curved connection lines between nodes
+- `SpecialNode`: Input/Output nodes for the chain
+- `InputWithIcon`: Specialized input component with connector visualization
+
+## 🚀 Getting Started
+
+1. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+2. **Run development server**
+
+   ```bash
+   npm run dev
+   ```
+
+3. **Open in browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 📝 Usage
+
+1. Enter an initial value in the "Initial value of x" input
+2. Modify function expressions in any of the function cards
+3. Watch as calculations automatically update through the chain
+4. Final result appears in the "Final Output y" display
+
+### Valid Expression Examples
+
+- `x^2`
+- `2x+4`
+- `x/2`
+- `x-2`
+- `x^2+20`
