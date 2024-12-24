@@ -16,11 +16,12 @@ type Props = {
 };
 
 const FunctionNode = ({ node }: Props) => {
+  const [error, setError] = useState<string>("");
+
   const { title, options, expression } = node.data;
   const { position } = node;
 
   const { handleUpdateNode } = useBoardContext();
-  const [error, setError] = useState<string>("");
 
   const handleUpdate = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
