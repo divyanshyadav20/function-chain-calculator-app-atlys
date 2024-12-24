@@ -1,30 +1,48 @@
-type BaseNode = {
+export type NodeType = "function" | "special";
+
+type Position = {
+  x: number;
+  y: number;
+};
+
+type BaseNode<T extends NodeType, TData> = {
   id: string;
-  type: "function" | "special";
-  position: {
-    x: number;
-    y: number;
-  };
+  type: T;
+  position: Position;
+  data: TData;
 };
 
-export type FunctionNodeAttributes = BaseNode & {
-  data: {
-    title: string;
-    defaultInputValue: string;
-    defaultOptionValue: string;
-    isSelectDisabled: boolean;
-    nextNodeId: string;
-    options: {
-      label: string;
-      value: string;
-    }[];
-  };
+type FunctionNodeData = {
+  title: string;
+  defaultInputValue: string;
+  defaultOptionValue: string;
+  isSelectDisabled: boolean;
+  nextNodeId: string;
+  options: Array<{
+    label: string;
+    value: string;
+  }>;
 };
 
-export type SpecialNodeAttributes = BaseNode & {
-  data: {
-    title: string;
-    connectedNodeId: string;
-    variant: "input" | "output";
-  };
+type SpecialNodeData = {
+  title: string;
+  connectedNodeId: string;
+  variant: "input" | "output";
+};
+
+export type FunctionNodeAttributes = BaseNode<"function", FunctionNodeData>;
+export type SpecialNodeAttributes = BaseNode<"special", SpecialNodeData>;
+
+export type NodeProperties = FunctionNodeAttributes | SpecialNodeAttributes;
+
+export const isFunctionNode = (
+  node: BaseNode<NodeType, unknown>
+): node is FunctionNodeAttributes => {
+  return node.type === "function";
+};
+
+export const isSpecialNode = (
+  node: BaseNode<NodeType, unknown>
+): node is SpecialNodeAttributes => {
+  return node.type === "special";
 };

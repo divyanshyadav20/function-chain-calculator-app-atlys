@@ -20,11 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${interFont.variable} antialiased`}>
-        {/* Dotted Background */}
-        <div className="fixed inset-0 -z-10 h-full w-full bg-[#F8F8F8] bg-[radial-gradient(#CFCFCF_1.25px,transparent_1px)] [background-size:18px_18px]"></div>
-        {children}
-      </body>
+      <body className={`${interFont.variable} antialiased`}>{children}</body>
     </html>
   );
 }
