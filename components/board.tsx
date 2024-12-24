@@ -4,7 +4,8 @@ import { BoardContext } from "@/context/useBoardContext";
 import allEdges from "@/data/edges.json";
 import allNodes from "@/data/nodes.json";
 import { NodeProperties } from "@/types/node";
-import { useCallback, useState } from "react";
+import { calculateOutput } from "@/utils/helpers";
+import { useCallback, useEffect, useState } from "react";
 import Edge from "./edge";
 import NodeComponent from "./nodes";
 
@@ -22,6 +23,15 @@ const Board = () => {
       )
     );
   }, []);
+
+  useEffect(() => {
+    if (valueX) {
+      const output = calculateOutput(valueX, nodes);
+      setValueY(output);
+    } else {
+      setValueY(null);
+    }
+  }, [nodes, valueX]);
 
   return (
     <BoardContext.Provider

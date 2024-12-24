@@ -8,9 +8,9 @@ type Props = {
 };
 
 const InputWithIcon = ({
+  value,
   className,
   variant = "input",
-  value,
   onChange,
 }: Props) => {
   const isRowReversed = variant === "output";
