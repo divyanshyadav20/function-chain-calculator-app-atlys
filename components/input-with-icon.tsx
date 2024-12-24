@@ -28,7 +28,7 @@ const InputWithIcon = ({ className, variant = "input", value }: Props) => {
           isRowReversed ? "bg-green-10" : "bg-mustard-50"
         }`}
       />
-      <div className="h-full flex justify-center items-center px-1.5">
+      <div className="h-full flex justify-center items-center px-1.5 pt-px">
         <Connector />
       </div>
     </div>

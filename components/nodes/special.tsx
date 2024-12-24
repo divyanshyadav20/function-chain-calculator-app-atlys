@@ -5,11 +5,13 @@ import Badge from "../badge";
 import InputWithIcon from "../input-with-icon";
 
 type Props = {
-  data: SpecialNodeAttributes["data"];
-  position: SpecialNodeAttributes["position"];
+  node: SpecialNodeAttributes;
 };
 
-const SpecialNode = ({ data: { variant, title }, position }: Props) => {
+const SpecialNode = ({ node }: Props) => {
+  const { variant, title } = node.data;
+  const { position } = node;
+
   const variantStyles = {
     input: "bg-mustard-200",
     output: "bg-green-30",
